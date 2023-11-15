@@ -1,0 +1,121 @@
+<pipes-container-page title="Pipes no tan comunes" description="Pipes incluidos en Angular - Usualmente en el Common Module">
+  <content class="grid mt-2">
+    <div class="col-12 md:col-6">
+      <p-fieldset legend="i18n Select Pipe" [toggleable]="true">
+        <p>Saludos {{ name }}, es un placer {{ gender | i18nSelect:invitationMap }} a nuestro evento.</p>
+        <p-button (click)="changeClient()">Cambiar persona</p-button>
+      </p-fieldset>
+    </div>
+    <div class="col-12 md:col-6">
+      <p-fieldset legend="i18n Plural Pipe" [toggleable]="true">
+        <p>Actualmente tenemos {{ clients.length | i18nPlural:clientsMap }}.</p>
+        <p-button [label]="clients.length > 0 ? 'Despacha cliente' : 'Cargar clientes esperando'" (click)="deleteClient()"></p-button>
+      </p-fieldset>
+    </div>
+    <div class="col-12 md:col-6">
+      <p-fieldset legend="Slice Pipe" [toggleable]="true">
+        <table class="w-full">
+          <tr>
+            <th>Estado</th>
+            <th>Array</th>
+            <th>String</th>
+          </tr>
+          <tr>
+            <td><b>Original</b></td>
+            <td><pre>{{ clients }}</pre></td>
+            <td>{{ textSlice }}</td>
+          </tr>
+          <tr>
+            <td><b>Slice:5</b></td>
+            <td><pre>{{ clients | slice:5 }}</pre></td>
+            <td>{{ textSlice | slice:5 }}</td>
+          </tr>
+          <tr>
+            <td><b>Slice:-4</b></td>
+            <td><pre>{{ clients | slice:-4 }}</pre></td>
+            <td>{{ textSlice | slice:-4 }}</td>
+          </tr>
+          <tr>
+            <td><b>Slice:0:4</b></td>
+            <td><pre>{{ clients | slice:0:4 }}</pre></td>
+            <td>{{ textSlice | slice:0:4 }}</td>
+          </tr>
+          <tr>
+            <td><b>Slice:-4:-2</b></td>
+            <td><pre>{{ clients | slice:-4:-2 }}</pre></td>
+            <td>{{ textSlice | slice:-4:-2 }}</td>
+          </tr>
+          <tr>
+            <td><b>Slice:4:0</b></td>
+            <td><pre>{{ clients | slice:4:0 }}</pre></td>
+            <td>{{ textSlice | slice:4:0 }}</td>
+          </tr>
+        </table>
+      </p-fieldset>
+    </div>
+    <div class="col-12 md:col-6">
+      <p-fieldset legend="Json Pipe" [toggleable]="true">
+        <div class="w-full grid">
+          <div class="col-4">
+            <p>Number:</p><pre>{{ 123.89 | json }}</pre>
+            <p>String:</p><pre>{{ textSlice | json }}</pre>
+            <p>Boolean:</p><pre>{{ true | json }}</pre>
+          </div>
+          <div class="col-4">
+            <p>Objeto:</p><pre>{{ objectJson | json }}</pre>
+          </div>
+          <div class="col-4">
+            <p>Array:</p><pre>{{ clients | json }}</pre>
+          </div>
+        </div>
+      </p-fieldset>
+    </div>
+    <div class="col-12 md:col-6">
+      <p-fieldset legend="KeyValue Pipe" [toggleable]="true">
+        <div class="w-full grid">
+          <div class="col-4">
+            <p>Objeto:</p><pre>{{ objectJson | json }}</pre>
+            <p>For con KeyValue</p>
+            <ul>
+              @for (item of objectJson | keyvalue; track $index) {
+                <ol>{{ $index + 1 }}: {{ item.key }} - {{ item.value }}</ol>
+              }
+            </ul>
+          </div>
+          <div class="col-4">
+            <p>Objeto Key:</p><pre>{{ objectKey | json }}</pre>
+            <p>For con KeyValue</p>
+            <ul>
+              @for (item of objectKey | keyvalue; track $index) {
+                <ol>{{ $index + 1 }}: {{ item.key }} - {{ item.value }}</ol>
+              }
+            </ul>
+          </div>
+          <div class="col-4">
+            <p>Objeto map:</p><p>{{ map }}</p><pre>{{ map | json }}</pre>
+            <p>For con KeyValue</p>
+            <ul>
+              @for (item of map | keyvalue; track $index) {
+                <ol>{{ $index + 1 }}: {{ item.key }} - {{ item.value }}</ol>
+              }
+            </ul>
+          </div>
+        </div>
+      </p-fieldset>
+    </div>
+    <div class="col-12 md:col-6">
+      <p-fieldset legend="Async Pipe" [toggleable]="true">
+        @if (myObservableTimer | async) {
+          <pre>{{ myObservableTimer | async }}</pre>
+        } @else {
+          <p>El observable no ha emitido nada</p>
+        }
+        @if (promiseValue | async) {
+          <pre>{{ promiseValue | async }}</pre>
+        } @else {
+          <p>La promesa no ha emitido nada</p>
+        }
+      </p-fieldset>
+    </div>
+  </content>
+</pipes-container-page>

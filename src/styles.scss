@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+@import "primeng/resources/themes/lara-light-teal/theme.css";
+@import "primeng/resources/primeng.css";
+
+::view-transition-old(root), /* Screenshot of the view of the page we are leaving */
+::view-transition-new(root) /* Representation of the new page view */ {
+ animation-duration: 2s;
+}
+
+body {
+  background-color: var(--blue-100);
+}

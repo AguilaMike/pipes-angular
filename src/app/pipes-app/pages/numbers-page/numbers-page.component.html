@@ -1,0 +1,85 @@
+<pipes-container-page title="Pipes numéricos" description="Pipes incluidos en Angular - Usualmente en el Common Module">
+  <content class="grid mt-2">
+    <div class="col-12 md:col-4">
+      <p-card header="Ventas Netas" subheader="del presente año">
+        <table class="w-full">
+          <tr>
+            <td class="p-2 text-left">totalSells | number</td>
+            <td class="p-2 text-right">{{ totalSells | number }}</td>
+          </tr>
+          <tr>
+            <td class="p-2 text-left">totalSells | number:'4.1-4'</td>
+            <td class="p-2 text-right">{{ totalSells | number:'4.1-4' }}</td>
+          </tr>
+          <tr>
+            <td class="p-2 text-left">totalSells | number:'4.4-4'</td>
+            <td class="p-2 text-right">{{ totalSells | number:'4.4-4' }}</td>
+          </tr>
+          <tr>
+            <td class="p-2 text-left">totalSells | number:'4.4-4':'fr'</td>
+            <td class="p-2 text-right">{{ totalSells | number:'4.4-4':'fr' }}</td>
+          </tr>
+        </table>
+      </p-card>
+    </div>
+
+    <div class="col-12 md:col-4">
+      <p-card header="Ventas Brutas" subheader="del presente año">
+        <table class="w-full">
+          <tr>
+            <td class="p-2 text-left">totalSells | currency</td>
+            <td class="p-2 text-right">{{ totalSells | currency }}</td>
+          </tr>
+          <tr>
+            <td class="p-2 text-left">totalSells | currency:'MXN'</td>
+            <td class="p-2 text-right">{{ totalSells | currency:'MXN' }}</td>
+          </tr>
+          <tr>
+            <td class="p-2 text-left">totalSells | currency:'MXN':'code'</td>
+            <td class="p-2 text-right">{{ totalSells | currency:'MXN':'code' }}</td>
+          </tr>
+          <tr>
+            <td class="p-2 text-left">totalSells | currency:'MXN':'symbol':'4.4-4'</td>
+            <td class="p-2 text-right">{{ totalSells | currency:'MXN':'symbol':'4.4-4' }}</td>
+          </tr>
+          <tr>
+            <td class="p-2 text-left">totalSells | currency:'MXN':'symbol-narrow':'4.4-4'</td>
+            <td class="p-2 text-right">{{ totalSells | currency:'MXN':'symbol-narrow':'4.4-4' }}</td>
+          </tr>
+          <tr>
+            <td class="p-2 text-left">totalSells | currency:'MXN':'symbol':'4.4-4':'fr'</td>
+            <td class="p-2 text-right">{{ totalSells | currency:'MXN':'symbol':'4.4-4':'fr' }}</td>
+          </tr>
+          <tr>
+            <td class="p-2 text-left">totalSells | currency:'MXN':'$ '</td>
+            <td class="p-2 text-right">{{ totalSells | currency:'MXN':'$ ' }}</td>
+          </tr>
+        </table>
+      </p-card>
+    </div>
+
+    <div class="col-12 md:col-4">
+      <p-card header="Ganancia porcentual" subheader="del presente año">
+        <table class="w-full">
+          <tr>
+            <td class="p-2 text-left">percentage | percent</td>
+            <td class="p-2 text-right">{{ percentage | percent }}</td>
+          </tr>
+          <tr>
+          <tr>
+            <td class="p-2 text-left">percentage | percent:'4.4-6'</td>
+            <td class="p-2 text-right">{{ percentage | percent:'4.4-6' }}</td>
+          </tr>
+          <tr>
+            <td class="p-2 text-left">percentage | percent:'4.6-6'</td>
+            <td class="p-2 text-right">{{ percentage | percent:'4.6-6' }}</td>
+          </tr>
+          <tr>
+            <td class="p-2 text-left">percentage | percent:'4.6-6':'fr'</td>
+            <td class="p-2 text-right">{{ percentage | percent:'4.6-6':'fr' }}</td>
+          </tr>
+        </table>
+      </p-card>
+    </div>
+  </content>
+</pipes-container-page>
