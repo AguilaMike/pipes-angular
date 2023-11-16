@@ -41,8 +41,9 @@ export class MainMenuComponent implements OnInit {
         icon: 'pi pi-cog',
         items: [
           {
-            label: 'No comunes',
+            label: 'Custom',
             icon: 'pi pi-globe',
+            routerLink: ['/pipes/custom']
           },
         ]
       }

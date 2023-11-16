@@ -1,0 +1,82 @@
+<pipes-container-page title="Pipes Personalizados" description="Pipes personalizados - creados por nosotros.">
+  <content class="grid mt-2">
+    <div class="col-12 md:col-6">
+      <p-fieldset legend="Toggle Case Text" [toggleable]="true">
+        <table class="w-full">
+          <thead>
+            <tr class="text-left">
+              <th>Estado</th>
+              <th>Texto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Original</b></td>
+              <td>{{ toggleText }}</td>
+            </tr>
+            <tr>
+              <td><b>toggleCaseText</b></td>
+              <td>{{ toggleText | toggleCaseText }}</td>
+            </tr>
+            <tr>
+              <td><b>toggleCaseText:'upper'</b></td>
+              <td>{{ toggleText | toggleCaseText:'upper' }}</td>
+            </tr>
+            <tr>
+              <td><b>toggleCaseText:'lower'</b></td>
+              <td>{{ toggleText | toggleCaseText:'lower' }}</td>
+            </tr>
+            <tr>
+              <td><b>toggleCaseText:'toggle'</b></td>
+              <td>{{ toggleText | toggleCaseText:'toggle' }}</td>
+            </tr>
+        </table>
+      </p-fieldset>
+    </div>
+    <div class="col-12 md:col-6">
+      <p-fieldset legend="Aplicacion del pipe" [toggleable]="false">
+        <p-panel [header]="'Estado original de la variable: ' + toggleText">
+          {{ stateToggleSubtitle }} <br>
+          El resultado de la transofrmación es: <strong>{{ toggleText | toggleCaseText:stateToggle }}</strong>
+          <ng-template pTemplate="footer">
+            <p-button label="ToggleCase" icon="pi pi-sync" (click)="onChangeStateToggle()"></p-button>
+          </ng-template>
+        </p-panel>
+      </p-fieldset>
+    </div>
+
+    <p-panel class="col-12 mt-2">
+      <ng-template pTemplate="header">
+        <div class="flex flex-grow-1">
+          <div class="flex-none flex">
+            <b>Heroes</b>
+          </div>
+          <div class="flex-grow-1 flex">&nbsp;</div>
+          <div class="flex-none flex">
+            <p-button label="Por nombre" icon="pi pi-user pi-sort" styleClass="p-button-success mr-2" (click)="onToggleSort('name')"></p-button>
+            <p-button label="Por volar" icon="pi pi-cloud pi-sort" styleClass="p-button-info mr-2" (click)="onToggleSort('canFly')"></p-button>
+            <p-button label="Por color" icon="pi pi-palette pi-sort" styleClass="p-button-help" (click)="onToggleSort('color')"></p-button>
+          </div>
+        </div>
+      </ng-template>
+
+      <p-table [value]="heroes | sortBy:sortBy:sortByType" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Nombre</th>
+                <th>Vuela</th>
+                <th>Color</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-hero>
+            <tr>
+                <td>{{ hero.name }}</td>
+                <td>{{ hero.canFly | canFly }}</td>
+                <td>{{ hero.color }}</td>
+            </tr>
+        </ng-template>
+      </p-table>
+    </p-panel>
+
+  </content>
+</pipes-container-page>
